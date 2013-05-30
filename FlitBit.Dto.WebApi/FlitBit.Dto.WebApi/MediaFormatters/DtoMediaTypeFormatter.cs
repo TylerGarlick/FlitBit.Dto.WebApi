@@ -4,7 +4,6 @@ using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Threading.Tasks;
-using System.Web.Http;
 using FlitBit.Core;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
@@ -18,9 +17,6 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
         static readonly MethodInfo TransformToModelMethod = typeof(DtoMediaTypeFormatter).MatchGenericMethod("TransformToModel", BindingFlags.Instance | BindingFlags.NonPublic, 1, typeof(object), typeof(string));
         public DtoMediaTypeFormatter()
         {
-            //var formatters = GlobalConfiguration.Configuration.Formatters;
-            //formatters.Remove(formatters.XmlFormatter);
-
             _currentFactory = FactoryProvider.Factory;
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
         }
