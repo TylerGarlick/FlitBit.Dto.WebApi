@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlitBit.Dto.WebApi", "FlitBit.Dto.WebApi\FlitBit.Dto.WebApi.csproj", "{C44AA774-4C4F-4B18-A898-6B31B78A240A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BB7E77DE-CC46-4075-82E1-B87A79A6193E}"
+	ProjectSection(SolutionItems) = preProject
+		nuspec.2010.7.xsd = nuspec.2010.7.xsd
+		nuspec.2011.8.xsd = nuspec.2011.8.xsd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C44AA774-4C4F-4B18-A898-6B31B78A240A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C44AA774-4C4F-4B18-A898-6B31B78A240A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C44AA774-4C4F-4B18-A898-6B31B78A240A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C44AA774-4C4F-4B18-A898-6B31B78A240A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

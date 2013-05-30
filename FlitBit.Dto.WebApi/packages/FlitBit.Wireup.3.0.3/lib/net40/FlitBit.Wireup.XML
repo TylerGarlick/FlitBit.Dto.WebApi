@@ -1,0 +1,1170 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>FlitBit.Wireup</name>
+  </assembly>
+  <members>
+    <member name="T:FlitBit.Wireup.AssemblyDependency">
+      <summary>
+              Dependency identifying an assembly and version.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.#ctor(System.String,System.String)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="assembly">the assembly's name</param>
+      <param name="version">the assembly's version</param>
+      <requires exception="T:System.ArgumentNullException" csharp="assembly != null" vb="assembly &lt;&gt; Nothing">assembly != null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+      <requires exception="T:System.ArgumentException" csharp="assembly.Length &gt; 0" vb="assembly.Length &gt; 0">assembly.Length &gt; 0</requires>
+      <exception cref="T:System.ArgumentException">assembly.Length &lt;= 0</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="version != null" vb="version &lt;&gt; Nothing">version != null</requires>
+      <exception cref="T:System.ArgumentNullException">version == null</exception>
+      <requires exception="T:System.ArgumentException" csharp="version.Length &gt; 0" vb="version.Length &gt; 0">version.Length &gt; 0</requires>
+      <exception cref="T:System.ArgumentException">version.Length &lt;= 0</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.Equals(System.Object)">
+      <summary>
+              Determines if the pair is equal to another object.
+            </summary>
+      <param name="obj">the other object</param>
+      <returns>
+        <em>true</em> if equal; otherwise <em>false</em></returns>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.GetHashCode">
+      <summary>
+              Calculates the pair's hashcode.
+            </summary>
+      <returns />
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.ToString">
+      <summary>
+              Converts the pair to a string representation.
+            </summary>
+      <returns />
+      <ensures inheritedFrom="M:System.Object.ToString" inheritedFromTypeName="Object" csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.Equals(FlitBit.Wireup.AssemblyDependency)">
+      <summary>
+              Determines if the pair is equal to another.
+            </summary>
+      <param name="other">the other</param>
+      <returns>
+        <em>true</em> if equal; otherwise <em>false</em></returns>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.op_Equality(FlitBit.Wireup.AssemblyDependency,FlitBit.Wireup.AssemblyDependency)">
+      <summary>
+              Determines if two pairs are equal.
+            </summary>
+      <param name="lhs">left hand operand</param>
+      <param name="rhs">right hand operand</param>
+      <returns>
+        <em>true</em> if equal; otherwise <em>false</em></returns>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyDependency.op_Inequality(FlitBit.Wireup.AssemblyDependency,FlitBit.Wireup.AssemblyDependency)">
+      <summary>
+              Determines if two pairs are unequal.
+            </summary>
+      <param name="lhs">left hand operand</param>
+      <param name="rhs">right hand operand</param>
+      <returns>
+        <em>true</em> if unequal; otherwise <em>false</em></returns>
+    </member>
+    <member name="P:FlitBit.Wireup.AssemblyDependency.Name">
+      <summary>
+              Gets the assembly's name.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.AssemblyDependency.Version">
+      <summary>
+              Gets the assembly's version.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.AssemblyWireup">
+      <summary>
+              Wires up this assembly.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.IWireupCommand">
+      <summary>
+              Interface for commands executed at wireup time.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCommand.Execute(FlitBit.Wireup.IWireupCoordinator)">
+      <summary>
+              Executes the command.
+            </summary>
+      <param name="coordinator">the wireup coordinator</param>
+    </member>
+    <member name="M:FlitBit.Wireup.AssemblyWireup.Execute(FlitBit.Wireup.IWireupCoordinator)">
+      <summary>
+              Wires up this assembly.
+            </summary>
+      <param name="coordinator" />
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElementCollection">
+      <summary>
+              Configuration element collection for ignore elements.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElementCollection.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElementCollection.PerformGetElementKey(FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElement)">
+      <summary>
+              Gets the element's key
+            </summary>
+      <param name="element">the element</param>
+      <returns>the key</returns>
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupConfigurationElementCollection">
+      <summary>
+              Configuration element collection for wireup elements.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Configuration.WireupConfigurationElementCollection.PerformGetElementKey(FlitBit.Wireup.Configuration.WireupConfigurationElement)">
+      <summary>
+              Gets the element's key
+            </summary>
+      <param name="element">the element</param>
+      <returns>the key</returns>
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupIgnoreStrategy">
+      <summary>
+              Determines how wireup ignore configuration elements are processed.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Configuration.WireupIgnoreStrategy.Default">
+      <summary>
+              Default behavior: matches.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Configuration.WireupIgnoreStrategy.Regex">
+      <summary>
+              Indicates the assemby name should be matched using regex.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Configuration.WireupIgnoreStrategy.StartsWith">
+      <summary>
+              Indicates the assembly name is a match if it begins with the given value.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Configuration.WireupIgnoreStrategy.EndsWith">
+      <summary>
+              Indicates the assembly name is a match if it ends with the given value.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Configuration.WireupIgnoreStrategy.Exact">
+      <summary>
+              Indicates the assembly name must match exactly.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElement">
+      <summary>
+              Configuration element for assemblies to ignore during wireup.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElement.AssemblyMatchSpec">
+      <summary>
+              Assembly match specification.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupIgnoreConfigurationElement.Strategy">
+      <summary>
+              The strategy used when checking whether assemblies match
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupConfigurationSection">
+      <summary>
+              Configuration section for wireup.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationSection.Assemblies">
+      <summary>
+              Gets the collection of configured assemblies.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationSection.HookAssemblyLoad">
+      <summary>
+              Indicates whether assemblies should be automatically wired up upon assembly load.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationSection.Ignore">
+      <summary>
+              Gets the collection of ignore specifications.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationSection.TypeName">
+      <summary>
+              Gets and sets the name of the configuration coordinator type.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationSection.WireupAllRunningAssemblies">
+      <summary>
+              Indicates whether a call to the wireup coordinator's SelfConfigure method should wireup all
+              running assemblies.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Configuration.WireupConfigurationElement">
+      <summary>
+              Configuration element for wiring up an assembly.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationElement.AssemblyName">
+      <summary>
+              The name of the assembly upon which wireup is performed.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Configuration.WireupConfigurationElement.Ordinal">
+      <summary>
+              The ordinal; indicates the order in which assemblies are registered.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.IWireupCoordinator">
+      <summary>
+              Ensures assemblies are wired up according to their declared
+              wireup dependencies and that all wireup commands are given
+              a chance to run.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.NotifyAssemblyLoaded(System.Reflection.Assembly)">
+      <summary>
+              Called by the framework when an assembly is loaded.
+            </summary>
+      <param name="assembly" />
+      <requires exception="T:System.ArgumentNullException" csharp="assembly != (decimal)null" vb="assembly &lt;&gt; ((System.Reflection.Assembly)Nothing) ">assembly != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.RegisterObserver(FlitBit.Wireup.IWireupObserver)">
+      <summary>
+              Registers an observer.
+            </summary>
+      <param name="observer" />
+      <requires exception="T:System.ArgumentNullException" csharp="observer != null" vb="observer &lt;&gt; Nothing">observer != null</requires>
+      <exception cref="T:System.ArgumentNullException">observer == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.ReportWireupHistory">
+      <summary>
+              Creates a string reporting of the wireup history.
+            </summary>
+      <returns />
+      <ensures csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.UnregisterObserver(System.Guid)">
+      <summary>
+              Unregisters an observer.
+            </summary>
+      <param name="observerKey" />
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.WireupDependencies(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)">
+      <summary>
+              Coordinates the wireup of an assembly.
+            </summary>
+      <param name="context">the context</param>
+      <param name="assembly">the assembly</param>
+      <requires exception="T:System.ArgumentNullException" csharp="assembly != (decimal)null" vb="assembly &lt;&gt; ((System.Reflection.Assembly)Nothing) ">assembly != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+      <ensures csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.WireupDependency(FlitBit.Wireup.Recording.WireupContext,System.Type)">
+      <summary>
+              Directly wires up a dependency (if it is not already wired).
+            </summary>
+      <param name="context">the context</param>
+      <param name="type">the type</param>
+      <requires exception="T:System.ArgumentNullException" csharp="type != (decimal)null" vb="type &lt;&gt; ((System.Type)Nothing) ">type != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+      <ensures csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupCoordinator.NotifyTaskObservers(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)">
+      <summary>
+            Notifies the wireup coordinator and observers when a task is performed.
+            </summary>
+      <param name="context" />
+      <param name="task" />
+      <param name="targetType" />
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="task != null" vb="task &lt;&gt; Nothing">task != null</requires>
+      <exception cref="T:System.ArgumentNullException">task == null</exception>
+    </member>
+    <member name="P:FlitBit.Wireup.IWireupCoordinator.ContextHistory">
+      <summary>
+              Gets the wireup context history.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.ReportWireupHistory">
+      <summary>
+              Creates a string reporting of the wireup history.
+            </summary>
+      <returns />
+      <ensures inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.ReportWireupHistory" inheritedFromTypeName="IWireupCoordinator" csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="T:FlitBit.Wireup.WireupBehaviors">
+      <summary>
+              Declares wireup behaviors.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupBehaviors.Discovery">
+      <summary>
+              Indicates the wireup coordinator should use discovery to guide
+              wireup.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupBehaviors.DeclarationsOnly">
+      <summary>
+              Indicates the wireup coordinator should only use declarations to
+              guide the wireup.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.WireupPhase">
+      <summary>
+              Wireup phases relate to an assembly.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.Initial">
+      <summary>
+            Initial phase (none).
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.Immediate">
+      <summary>
+              Immediately upon discovery.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.BeforeDependencies">
+      <summary>
+              Indicates before dependencies are resolved.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.Dependencies">
+      <summary>
+              Indicates as dependencies are resolved.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.BeforeTasks">
+      <summary>
+              Indicates before tasks are executed.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.Tasks">
+      <summary>
+              Indicates as tasks are executed.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.BeforeWireup">
+      <summary>
+              Indicates before wireup.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.Wireup">
+      <summary>
+              Default; indicates during the wireup phase.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.WireupPhase.AfterWireup">
+      <summary>
+              Indicates after wireup.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator">
+      <summary>
+              CodeContracts Class for IWireupCoordinator
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.NotifyAssemblyLoaded(System.Reflection.Assembly)">
+      <summary>
+              Called by the framework when an assembly is loaded.
+            </summary>
+      <param name="assembly" />
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.RegisterObserver(FlitBit.Wireup.IWireupObserver)">
+      <summary>
+              Registers an observer.
+            </summary>
+      <param name="observer" />
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.UnregisterObserver(System.Guid)">
+      <summary>
+              Unregisters an observer.
+            </summary>
+      <param name="observerKey" />
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.WireupDependencies(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)">
+      <summary>
+              Coordinates the wireup of an assembly.
+            </summary>
+      <param name="context" />
+      <param name="assembly" />
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.WireupDependency(FlitBit.Wireup.Recording.WireupContext,System.Type)">
+      <summary>
+              Directly wires up a dependency (if it is not already wired).
+            </summary>
+      <param name="context" />
+      <param name="type" />
+    </member>
+    <member name="M:FlitBit.Wireup.CodeContracts.ContractForIWireupCoordinator.ReportWireupHistory">
+      <summary>
+              Creates a string reporting of the wireup history.
+            </summary>
+      <returns />
+    </member>
+    <member name="T:FlitBit.Wireup.IWireupObserver">
+      <summary>
+              Interface for wireup observers. Wireup coordinators will notify observers of
+              tasks and dependencies having a matching observer key.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.IWireupObserver.NotifyWireupTask(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)">
+      <summary>
+              Called by coordinators to notify observers of wireup tasks.
+            </summary>
+      <param name="coordinator" />
+      <param name="task" />
+      <param name="target" />
+    </member>
+    <member name="P:FlitBit.Wireup.IWireupObserver.ObserverKey">
+      <summary>
+              Gets the observer's key.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Meta.WireupAttribute">
+      <summary>
+              Attribute declaring a wireup command for an assembly.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupAttribute.#ctor(FlitBit.Wireup.WireupBehaviors)">
+      <summary>
+              Creates a new WireupAttribute and initializes its behavior.
+            </summary>
+      <param name="behaviors">the assembly's wireup behavior</param>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupAttribute.#ctor(System.Type)">
+      <summary>
+              Creates a new WireupAttribute and initializes the command type.
+            </summary>
+      <param name="commandType">command type</param>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupAttribute.#ctor(FlitBit.Wireup.WireupBehaviors,System.Type[])">
+      <summary>
+              Creates a new WireupAttribute and initializes its behavior and command types.
+            </summary>
+      <param name="behaviors">the assembly's wireup behavior</param>
+      <param name="commandTypes">command types</param>
+    </member>
+    <member name="P:FlitBit.Wireup.Meta.WireupAttribute.Behaviors">
+      <summary>
+              Indicates the assembly's wireup behaviors.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Meta.WireupAttribute.CommandType">
+      <summary>
+              The command types to be invoked during wireup.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Meta.WireupDependencyAttribute">
+      <summary>
+              Attribute declaring a wireup dependance on another type (a "reliant" type).
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupDependencyAttribute.#ctor(System.Type)">
+      <summary>
+              Createas a new WireupDependency and initializes it with a type upon which the
+              current element is dependent.
+            </summary>
+      <param name="target">The type upon which the attribute target is dependent</param>
+      <requires exception="T:System.ArgumentNullException" csharp="target != (System.Type)null" vb="target &lt;&gt; ((System.Type)Nothing) ">target != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">target == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupDependencyAttribute.#ctor(FlitBit.Wireup.WireupPhase,System.Type)">
+      <summary>
+              Createas a new WireupDependency and initializes it with a type upon which the
+              current element is dependent.
+            </summary>
+      <param name="phase">the wireup phase in which the dependency is resolved</param>
+      <param name="target">The type upon which the attribute target is dependent</param>
+      <requires exception="T:System.ArgumentNullException" csharp="target != (System.Type)null" vb="target &lt;&gt; ((System.Type)Nothing) ">target != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">target == null</exception>
+    </member>
+    <member name="P:FlitBit.Wireup.Meta.WireupDependencyAttribute.Phase">
+      <summary>
+              Indicates the wireup phase.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Meta.WireupDependencyAttribute.TargetType">
+      <summary>
+              The target of the dependency.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Meta.WireupTaskAttribute">
+      <summary>
+              Base wireup task attribute. Wireup tasks are executed by the wireup coordinator opon discovery.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupTaskAttribute.#ctor">
+      <summary>
+              Createas a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupTaskAttribute.#ctor(FlitBit.Wireup.WireupPhase)">
+      <summary>
+              Createas a new instance.
+            </summary>
+      <param name="phase">the wireup phase in which the task is executed</param>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupTaskAttribute.PerformTask(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Called by the base class upon execution. Derived classes should
+              provide an implementation that performs the wireup logic.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Meta.WireupTaskAttribute.ExecuteTask(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Called by the framework to execute the task.
+            </summary>
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+    </member>
+    <member name="P:FlitBit.Wireup.Meta.WireupTaskAttribute.Phase">
+      <summary>
+              Indicates the wireup phase.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Properties.Resources">
+      <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Properties.Resources.ResourceManager">
+      <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Properties.Resources.Culture">
+      <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Properties.Resources.Chk_TypeMustBeAssignableToIWireupCommand">
+      <summary>
+              Looks up a localized string similar to type must be assignable to IWireupCommand.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Properties.Resources.Err_ConfiguredWireupCoordinatorTypeMismatch">
+      <summary>
+              Looks up a localized string similar to configured wireup coordinator must implement IWireupCoordinator: .
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Properties.Resources.Err_NotInitialized">
+      <summary>
+              Looks up a localized string similar to instance must be initialized.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupErrorRecord">
+      <summary>
+              Captures a wireup error.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupErrorRecord.Describe(System.Boolean)">
+      <summary>
+              Produces a description of the error.
+            </summary>
+      <param name="detailed">indicates whether the description should be detailed</param>
+      <returns>
+              A detailed description if <paramref name="detailed" /> is provied; otherwise a summary of the error.
+            </returns>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupErrorRecord.Cause">
+      <summary>
+              The exception.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupErrorRecord.Context">
+      <summary>
+              The wireup context at the time of the error.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupErrorRecord.Phase">
+      <summary>
+              Which wireup phase was executing when the error was encountered.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupErrorRecord.Where">
+      <summary>
+              Where the error was encountered.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupProcessingSequence">
+      <summary>
+              Records the processing sequence for a wireup context.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupProcessingSequence.BeginScope">
+      <summary>
+              Increments the current thread's scope depth in the processing sequence.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupProcessingSequence.EndScope">
+      <summary>
+              Decrements the current thread's scope depth in the processing sequence.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupProcessingSequence.Push(System.String)">
+      <summary>
+            Pushes processing notes onto the sequence.
+            </summary>
+      <param name="description" />
+      <exception cref="T:System.InvalidOperationException" />
+      <requires exception="T:System.ArgumentNullException" csharp="description != null" vb="description &lt;&gt; Nothing">description != null</requires>
+      <exception cref="T:System.ArgumentNullException">description == null</exception>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupProcessingSequence.Records">
+      <summary>
+              Returns the processing record.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupProcessingSequence.Record">
+      <summary>
+              A processing record.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupProcessingSequence.Record.Depth">
+      <summary>
+              The thread's processing depth.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupProcessingSequence.Record.Details">
+      <summary>
+              Details about the processing.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupProcessingSequence.Record.Sequence">
+      <summary>
+              The sequence of the record within the processing.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupProcessingSequence.Record.ThreadId">
+      <summary>
+              The managed thread Id.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupRecord">
+      <summary>
+              Abstract wireup record.
+            </summary>
+    </member>
+    <member name="F:FlitBit.Wireup.Recording.WireupRecord.WireupPhaseExecuting">
+      <summary>
+              Event fired when a wireup phase is executing.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.#ctor(FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Creates a new instance on the provided context.
+            </summary>
+      <param name="context" />
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.AddError(FlitBit.Wireup.Recording.WireupErrorRecord)">
+      <summary>
+              Adds an error record to the wireup.
+            </summary>
+      <param name="error" />
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.OnWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Special handling for the Wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.OnWireupPhaseEvent(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.WireupPhase)">
+      <summary>
+              Event dispatcher for wireup phase events.
+            </summary>
+      <param name="coordinator">The coordinator.</param>
+      <param name="context">The context.</param>
+      <param name="phase">The phase.</param>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.PerformWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Performs wireup. Specialized by subclasses.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.PerformWireupPhase(FlitBit.Wireup.WireupPhase)">
+      <summary>
+              Determines if the wireup phase should be performed.
+            </summary>
+      <param name="phase" />
+      <returns />
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecord.PerformWireupPhase(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.WireupPhase)">
+      <summary>
+              Performs a wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+      <param name="phase" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.CompletedWireupPhase">
+      <summary>
+              Indicates the completed wireup phases.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.Context">
+      <summary>
+              Gets the context upon which the wireup was recorded.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.DeclarationsOnly">
+      <summary>
+              Indicates whether wireup declarations indicate using declarations only (no discovery).
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.Dependencies">
+      <summary>
+              Gets the item's dependencies.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.Description">
+      <summary>
+              Description.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.IsWireupComplete">
+      <summary>
+              Indicates whether wireup has completed.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.Tasks">
+      <summary>
+              Gets the item's dependent tasks.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecord.WireupDeclarations">
+      <summary>
+              Gets wireup declarations.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupRecordExtensions">
+      <summary>
+              Extensions for wireup records.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecordExtensions.PerformWireupPhases(FlitBit.Wireup.Recording.WireupRecord,FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Performs wireup phases for the record.
+            </summary>
+      <param name="rec">The record.</param>
+      <param name="coordinator">The coordinator.</param>
+      <param name="context">The context.</param>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WiredAssembly">
+      <summary>
+              Records assembly wireup dependencies and processing results.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredAssembly.#ctor(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="context" />
+      <param name="asm" />
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="asm != (System.Reflection.Assembly)null" vb="asm &lt;&gt; ((System.Reflection.Assembly)Nothing) ">asm != (System.Reflection.Assembly)null</requires>
+      <exception cref="T:System.ArgumentNullException">asm == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredAssembly.OnWireupPhaseEvent(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.WireupPhase)">
+      <summary>
+              Event dispatcher for wireup phase events. Specialized to process modules.
+            </summary>
+      <param name="coordinator">The coordinator.</param>
+      <param name="context">The context.</param>
+      <param name="phase">The phase.</param>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredAssembly.Assemblies">
+      <summary>
+              Gets assembly dependencies.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredAssembly.AssemblyName">
+      <summary>
+              The assembly's name.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredAssembly.FullName">
+      <summary>
+              The assembly's full name.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredAssembly.HasDeclarations">
+      <summary>
+              Indicates whether the assembly has declarations.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredAssembly.Modules">
+      <summary>
+              Gets module dependencies.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WiredDependency">
+      <summary>
+              Wireup record for dependencies.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredDependency.#ctor(FlitBit.Wireup.Recording.WireupRecord,FlitBit.Wireup.Meta.WireupDependencyAttribute)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="where" />
+      <param name="attr" />
+      <requires exception="T:System.ArgumentNullException" csharp="where != null" vb="where &lt;&gt; Nothing">where != null</requires>
+      <exception cref="T:System.ArgumentNullException">where == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredDependency.OnWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Special handling for the Wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredDependency.Phase">
+      <summary>
+              Wireup phase in which the dependency is wired.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredDependency.TargetType">
+      <summary>
+              The target type.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WiredModule">
+      <summary>
+              Wireup record for modules.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredModule.#ctor(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Recording.WiredAssembly,System.Reflection.Module)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="context" />
+      <param name="assembly">The module's assembly</param>
+      <param name="module">The module</param>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="assembly != null" vb="assembly &lt;&gt; Nothing">assembly != null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="module != (System.Reflection.Module)null" vb="module &lt;&gt; ((System.Reflection.Module)Nothing) ">module != (System.Reflection.Module)null</requires>
+      <exception cref="T:System.ArgumentNullException">module == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredModule.OnWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Special handling for the Wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredModule.Assembly">
+      <summary>
+              The module's assembly.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredModule.FullyQualifiedName">
+      <summary>
+              The module's fully qualified name.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WiredTask">
+      <summary>
+              Wireup record for wireup tasks.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredTask.#ctor(FlitBit.Wireup.Recording.WireupRecord,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="where">Where the task was encountered.</param>
+      <param name="task">The task attribute.</param>
+      <param name="type">The task's target type (if exists; otherwise null).</param>
+      <requires exception="T:System.ArgumentNullException" csharp="where != null" vb="where &lt;&gt; Nothing">where != null</requires>
+      <exception cref="T:System.ArgumentNullException">where == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredTask.OnWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Special handling for the Wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredTask.Phase">
+      <summary>
+              The phase in which the task is executed.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredTask.TargetTask">
+      <summary>
+            The task.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredTask.TargetType">
+      <summary>
+            The type on which the task is declared.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WiredType">
+      <summary>
+              Wireup recored for wired types.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredType.#ctor(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Recording.WiredModule,System.Type)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="context">context in which the type is wired.</param>
+      <param name="module">The wireup record for the module where the type resides.</param>
+      <param name="type">the type</param>
+      <requires exception="T:System.ArgumentNullException" csharp="local_2.type != (System.Type)null" vb="local_2.type &lt;&gt; ((System.Type)Nothing) ">local_2.type != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredType.OnWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <summary>
+              Special handling for the Wireup phase.
+            </summary>
+      <param name="coordinator" />
+      <param name="context" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredType.AssemblyQualifiedName">
+      <summary>
+              The type's assembly qualified name.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WiredType.Module">
+      <summary>
+              The type's module.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupContext">
+      <summary>
+              Collects and carries context information related to an operation against wireup.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.PerformDispose(System.Boolean)">
+      <summary>
+              Performs the dispose logic.
+            </summary>
+      <param name="disposing">Whether the object is disposing (IDisposable.Dispose method was called).</param>
+      <returns>
+              Implementers should return true if the disposal was successful; otherwise false.
+            </returns>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.ParallelShare">
+      <summary>
+              Prepares the instance for sharing across threads.
+              This call should be wrapped in a 'using clause' to
+              ensure proper cleanup of both the shared and the original.
+            </summary>
+      <returns>
+              An equivalent instance.
+            </returns>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.NewOrShared(FlitBit.Wireup.IWireupCoordinator,System.Action{FlitBit.Wireup.Recording.WireupContext})">
+      <summary>
+              Shares the ambient context if it exists; otherwise, creates a new one.
+            </summary>
+      <returns>a context</returns>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupContext.Assemblies">
+      <summary>
+              The assemblies wired up in the context.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupContext.ID">
+      <summary>
+              The context's ID.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupContext.IsInitialized">
+      <summary>
+              Indicates whether the context has been initialized.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupContext.Sequence">
+      <summary>
+              Proccessing sequence.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupContext.Current">
+      <summary>
+              Gets the current "ambient" wireup context.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupRecordingException">
+      <summary>
+              A recorded exception during wireup.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupRecordingException.#ctor(FlitBit.Wireup.Recording.WireupErrorRecord)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="record" />
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecordingException.ErrorRecord">
+      <summary>
+              An error record describing the source of the exception.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.Recording.WireupRecordPhaseEventArgs">
+      <summary>
+              Event arguments for wireup phase events.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecordPhaseEventArgs.Context">
+      <summary>
+              The wireup context.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecordPhaseEventArgs.Coordinator">
+      <summary>
+              The coordinator.
+            </summary>
+    </member>
+    <member name="P:FlitBit.Wireup.Recording.WireupRecordPhaseEventArgs.Phase">
+      <summary>
+              The wireup phase.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.WireupCommand">
+      <summary>
+              Abstract wireup command.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.WireupCommand.PerformWireup(FlitBit.Wireup.IWireupCoordinator)">
+      <summary>
+              Called by the base class upon execute. Derived classes should
+              provide an implementation that performs the wireup logic.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.WireupCommand.FlitBit#Wireup#IWireupCommand#Execute(FlitBit.Wireup.IWireupCoordinator)">
+      <summary>
+              Executes the wireup command.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Wireup.WireupCoordinator">
+      <summary>
+              Utility class for coordinating wireup.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.WireupCoordinator.SelfConfigure">
+      <summary>
+              Causes the wireup coordinator to self-configure; this will bootstrap the WireupCoordinator if it
+              has not already been wired, then wireup the calling assembly.
+            </summary>
+      <returns>the coordinator after it self-configures</returns>
+    </member>
+    <member name="P:FlitBit.Wireup.WireupCoordinator.Instance">
+      <summary>
+              Accesses the singleton IWireupCoordinator instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.InitialAssembly(FlitBit.Wireup.IWireupCoordinator,System.Reflection.Assembly)">
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="assembly != (System.Reflection.Assembly)null" vb="assembly &lt;&gt; ((System.Reflection.Assembly)Nothing) ">assembly != (System.Reflection.Assembly)null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.InitialType(FlitBit.Wireup.IWireupCoordinator,System.Type)">
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="type != (System.Type)null" vb="type &lt;&gt; ((System.Type)Nothing) ">type != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.PerformWireupType(FlitBit.Wireup.IWireupCoordinator,System.Type)">
+      <requires exception="T:System.InvalidOperationException" csharp="this.IsInitialized" vb="Me.IsInitialized">this.IsInitialized</requires>
+      <exception cref="T:System.InvalidOperationException">!(IsInitialized)</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="type != (System.Type)null" vb="type &lt;&gt; ((System.Type)Nothing) ">type != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WireupContext.WireupDependency(FlitBit.Wireup.IWireupCoordinator,System.Reflection.Assembly)">
+      <requires exception="T:System.InvalidOperationException" csharp="this.IsInitialized" vb="Me.IsInitialized">this.IsInitialized</requires>
+      <exception cref="T:System.InvalidOperationException">!(IsInitialized)</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredModule.PerformWireupType(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,System.Type)">
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="type != (System.Type)null" vb="type &lt;&gt; ((System.Type)Nothing) ">type != (System.Type)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+      <requires exception="T:System.ArgumentException" csharp="Equals(type.Module.FullyQualifiedName, this.FullyQualifiedName, 2)" vb="Equals(type.Module.FullyQualifiedName, Me.FullyQualifiedName, 2)">string.Equals(type.Module.FullyQualifiedName, this.FullyQualifiedName, 2)</requires>
+      <exception cref="T:System.ArgumentException">!(String.Equals(type.Module.FullyQualifiedName, this.FullyQualifiedName,
+																												StringComparison.InvariantCulture))</exception>
+      <ensures csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredModule.WireupTypes(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,System.Reflection.Module)">
+      <requires exception="T:System.ArgumentNullException" csharp="mod != (System.Reflection.Module)null" vb="mod &lt;&gt; ((System.Reflection.Module)Nothing) ">mod != (System.Reflection.Module)null</requires>
+      <exception cref="T:System.ArgumentNullException">mod == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentException" csharp="Equals(mod.FullyQualifiedName, this.FullyQualifiedName, 2)" vb="Equals(mod.FullyQualifiedName, Me.FullyQualifiedName, 2)">string.Equals(mod.FullyQualifiedName, this.FullyQualifiedName, 2)</requires>
+      <exception cref="T:System.ArgumentException">!(String.Equals(mod.FullyQualifiedName, this.FullyQualifiedName,
+																												StringComparison.InvariantCulture))</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Recording.WiredAssembly.PerformWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)">
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="asm != (System.Reflection.Assembly)null" vb="asm &lt;&gt; ((System.Reflection.Assembly)Nothing) ">asm != (System.Reflection.Assembly)null</requires>
+      <exception cref="T:System.ArgumentNullException">asm == null</exception>
+      <requires exception="T:System.ArgumentException" csharp="Equals(asm.FullName, this.FullName, 2)" vb="Equals(asm.FullName, Me.FullName, 2)">string.Equals(asm.FullName, this.FullName, 2)</requires>
+      <exception cref="T:System.ArgumentException">!(String.Equals(asm.FullName, this.FullName, StringComparison.InvariantCulture))</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.WireupDependency(FlitBit.Wireup.Recording.WireupContext,System.Type)">
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.WireupDependency(FlitBit.Wireup.Recording.WireupContext,System.Type)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="type != (decimal)null" vb="type &lt;&gt; ((System.Type)Nothing) ">type != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">type == null</exception>
+      <ensures inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.WireupDependency(FlitBit.Wireup.Recording.WireupContext,System.Type)" inheritedFromTypeName="IWireupCoordinator" csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.WireupDependencies(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)">
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.WireupDependencies(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="assembly != (decimal)null" vb="assembly &lt;&gt; ((System.Reflection.Assembly)Nothing) ">assembly != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+      <ensures inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.WireupDependencies(FlitBit.Wireup.Recording.WireupContext,System.Reflection.Assembly)" inheritedFromTypeName="IWireupCoordinator" csharp="result != null" vb="result &lt;&gt; Nothing">result != null</ensures>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.RegisterObserver(FlitBit.Wireup.IWireupObserver)">
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.RegisterObserver(FlitBit.Wireup.IWireupObserver)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="observer != null" vb="observer &lt;&gt; Nothing">observer != null</requires>
+      <exception cref="T:System.ArgumentNullException">observer == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.NotifyAssemblyLoaded(System.Reflection.Assembly)">
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.NotifyAssemblyLoaded(System.Reflection.Assembly)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="assembly != (decimal)null" vb="assembly &lt;&gt; ((System.Reflection.Assembly)Nothing) ">assembly != (decimal)null</requires>
+      <exception cref="T:System.ArgumentNullException">assembly == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.DefaultWireupCoordinator.NotifyTaskObservers(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)">
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.NotifyTaskObservers(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+      <requires inheritedFrom="M:FlitBit.Wireup.IWireupCoordinator.NotifyTaskObservers(FlitBit.Wireup.Recording.WireupContext,FlitBit.Wireup.Meta.WireupTaskAttribute,System.Type)" inheritedFromTypeName="IWireupCoordinator" exception="T:System.ArgumentNullException" csharp="task != null" vb="task &lt;&gt; Nothing">task != null</requires>
+      <exception cref="T:System.ArgumentNullException">task == null</exception>
+    </member>
+    <member name="M:FlitBit.Wireup.Configuration.WireupConfigurationElement.PerformWireup(FlitBit.Wireup.IWireupCoordinator,FlitBit.Wireup.Recording.WireupContext)">
+      <requires exception="T:System.ArgumentNullException" csharp="coordinator != null" vb="coordinator &lt;&gt; Nothing">coordinator != null</requires>
+      <exception cref="T:System.ArgumentNullException">coordinator == null</exception>
+      <requires exception="T:System.ArgumentNullException" csharp="context != null" vb="context &lt;&gt; Nothing">context != null</requires>
+      <exception cref="T:System.ArgumentNullException">context == null</exception>
+    </member>
+  </members>
+</doc>

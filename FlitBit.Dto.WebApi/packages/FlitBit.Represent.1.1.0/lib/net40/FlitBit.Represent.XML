@@ -1,0 +1,482 @@
+﻿<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>FlitBit.Represent</name>
+  </assembly>
+  <members>
+    <member name="T:FlitBit.Represent.Binary.AutoImplementBinaryRepresentationAttribute">
+      <summary>
+              Automatically creates implementations of IBsonRepresentations.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Binary.AutoImplementBinaryRepresentationAttribute.#ctor">
+      <summary>
+              Constructs a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Binary.AutoImplementBinaryRepresentationAttribute.GetImplementation(FlitBit.Core.Factory.IFactory,System.Type,System.Action{System.Type,System.Func{System.Object}})">
+      <summary>
+            Gets the implementation for type
+            </summary>
+      <param name="factory">the factory from which the type was requested.</param>
+      <param name="type">the target types</param>
+      <param name="complete">callback invoked when the implementation is available</param>
+      <returns>
+        <em>true</em> if implemented; otherwise <em>false</em>.
+            </returns>
+      <exception cref="T:System.ArgumentException">thrown if <paramref name="type" /> is not eligible for implementation</exception>
+      <remarks>
+            If the <paramref name="complete" /> callback is invoked, it must be given either an implementation type
+                          assignable to type T, or a factory function that creates implementations of type T.
+            </remarks>
+    </member>
+    <member name="T:FlitBit.Represent.Binary.BinaryRepresentation`1">
+      <summary>
+              Transforms source item into a it's binary representation
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.RepresentationBase`2">
+      <summary>
+              Abstract implementation.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+      <typeparam name="TRepresentation">representation type R</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.IRepresentation`2">
+      <summary>
+              Transforms source item into an alternate representation.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+      <typeparam name="TRepresentation">representation type R</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.IRepresentation`1">
+      <summary>
+              Transforms source item into an alternate representation.
+            </summary>
+      <typeparam name="TRepresentation">representation type R</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.IRepresentation`1.UntypedRestoreItem(`0)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.IRepresentation`1.UntypedTransformItem(System.Object)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.IRepresentation`2.RestoreItem(`1)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.IRepresentation`2.TransformItem(`0)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.RepresentationBase`2.TransformItem(`0)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.RepresentationBase`2.RestoreItem(`1)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.RepresentationBase`2.UntypedRestoreItem(`1)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.RepresentationBase`2.UntypedTransformItem(System.Object)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="T:FlitBit.Represent.Binary.IBinaryRepresentation`1">
+      <summary>
+              Transforms source item into a it's binary serialized representation.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Binary.BinaryRepresentation`1.TransformItem(`0)">
+      <summary>
+              Produces a binary representation from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>binary representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.Binary.BinaryRepresentation`1.RestoreItem(System.Byte[])">
+      <summary>
+              Restores an item from it's binary representation
+            </summary>
+      <param name="bytes">the item's binary representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="T:FlitBit.Represent.Binary.DelegatedBinaryRepresentation`2">
+      <summary>
+              Delegated binary representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TConcrete">target type C</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.DelegatedRepresentation`3">
+      <summary>
+              Delegated representation transform. Transforms target type T into representation R, and upon
+              restore, restores type C.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TConcrete">target type C</typeparam>
+      <typeparam name="TRepresentation">representation type R</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.DelegatedRepresentation`3.#ctor(FlitBit.Represent.IRepresentation{`1,`2})">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="transform">delegate target transform for type C to R</param>
+      <requires exception="T:System.ArgumentNullException" csharp="transform != null" vb="transform &lt;&gt; Nothing">transform != null</requires>
+      <exception cref="T:System.ArgumentNullException">transform == null</exception>
+    </member>
+    <member name="M:FlitBit.Represent.DelegatedRepresentation`3.TransformItem(`0)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.DelegatedRepresentation`3.RestoreItem(`2)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.DelegatedRepresentation`3.UntypedRestoreItem(`2)">
+      <summary>
+              Restores an item from a representation
+            </summary>
+      <param name="representation">the representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.DelegatedRepresentation`3.UntypedTransformItem(System.Object)">
+      <summary>
+              Produces representation type R from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>a representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.Binary.DelegatedBinaryRepresentation`2.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.AutoImplementBsonRepresentationAttribute">
+      <summary>
+              Automatically creates implementations of IBsonRepresentations.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.AutoImplementBsonRepresentationAttribute.#ctor">
+      <summary>
+              Constructs a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.AutoImplementBsonRepresentationAttribute.GetImplementation(FlitBit.Core.Factory.IFactory,System.Type,System.Action{System.Type,System.Func{System.Object}})">
+      <summary>
+            Gets the implementation for type
+            </summary>
+      <param name="factory">the factory from which the type was requested.</param>
+      <param name="type">the target types</param>
+      <param name="complete">callback invoked when the implementation is available</param>
+      <returns>
+        <em>true</em> if implemented; otherwise <em>false</em>.
+            </returns>
+      <exception cref="T:System.ArgumentException">thrown if <paramref name="type" /> is not eligible for implementation</exception>
+      <remarks>
+            If the <paramref name="complete" /> callback is invoked, it must be given either an implementation type
+                          assignable to type T, or a factory function that creates implementations of type T.
+            </remarks>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.BsonRepresentation`1">
+      <summary>
+              Transforms source item into a it's BSON representation
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.IBsonRepresentation`1">
+      <summary>
+              Transforms source item into a it's BSON representation
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.BsonRepresentation`1.#ctor(Newtonsoft.Json.JsonSerializerSettings)">
+      <summary>
+              Creates a new instance with serializer settings given.
+            </summary>
+      <param name="settings">serializer settings</param>
+      <requires exception="T:System.ArgumentNullException" csharp="settings != null" vb="settings &lt;&gt; Nothing">settings != null</requires>
+      <exception cref="T:System.ArgumentNullException">settings == null</exception>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.BsonRepresentation`1.TransformItem(`0)">
+      <summary>
+              Produces a BSON representation from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>BSON representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.BsonRepresentation`1.RestoreItem(System.Byte[])">
+      <summary>
+              Restores an item from it's BSON representation
+            </summary>
+      <param name="bson">the item's BSON representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.DelegatedBsonRepresentation`2">
+      <summary>
+              Delegated BSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TConcrete">target type C</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.DelegatedBsonRepresentation`2.#ctor(System.Boolean)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="strict">Inidcates whether the JSON transorm should be strict</param>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.DelegatedBsonRepresentationLoose`2">
+      <summary>
+              Delegated loose BSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TConcrete">target type C</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.DelegatedBsonRepresentationLoose`2.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.DelegatedBsonRepresentationStrict`2">
+      <summary>
+              Delegated  strict BSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TConcrete">target type C</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.DelegatedBsonRepresentationStrict`2.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.BsonRepresentationLoose`1">
+      <summary>
+              Transforms an items into a BSON representation, ignoring missing members.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.BsonRepresentationLoose`1.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Bson.BsonRepresentationStrict`1">
+      <summary>
+              Transforms an items into a BSON representation, erroring on missing members.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Bson.BsonRepresentationStrict`1.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Json.AutoImplementJsonRepresentationAttribute">
+      <summary>
+              Automatically creates implementations of IJsonRepresentations.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Json.AutoImplementJsonRepresentationAttribute.#ctor">
+      <summary>
+              Constructs a new instance.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Json.AutoImplementJsonRepresentationAttribute.GetImplementation(FlitBit.Core.Factory.IFactory,System.Type,System.Action{System.Type,System.Func{System.Object}})">
+      <summary>
+            Gets the implementation for type
+            </summary>
+      <param name="factory">the factory from which the type was requested.</param>
+      <param name="type">the target types</param>
+      <param name="complete">callback invoked when the implementation is available</param>
+      <returns>
+        <em>true</em> if implemented; otherwise <em>false</em>.
+            </returns>
+      <exception cref="T:System.ArgumentException">thrown if <paramref name="type" /> is not eligible for implementation</exception>
+      <remarks>
+            If the <paramref name="complete" /> callback is invoked, it must be given either an implementation type
+                          assignable to type T, or a factory function that creates implementations of type T.
+            </remarks>
+    </member>
+    <member name="T:FlitBit.Represent.Json.DelegatedJsonRepresentation`2">
+      <summary>
+              Delegated JSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TRepresentation">target type C</typeparam>
+    </member>
+    <member name="T:FlitBit.Represent.Json.IJsonRepresentation`1">
+      <summary>
+              Transforms source item into a it's JSON representation
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.DelegatedJsonRepresentation`2.#ctor(System.Boolean)">
+      <summary>
+              Creates a new instance.
+            </summary>
+      <param name="strict">Inidcates whether the JSON transorm should be strict</param>
+    </member>
+    <member name="T:FlitBit.Represent.Json.DelegatedJsonRepresentationLoose`2">
+      <summary>
+              Delegated loose JSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TRepresentation">target type C</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.DelegatedJsonRepresentationLoose`2.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Json.DelegatedJsonRepresentationStrict`2">
+      <summary>
+              Delegated  strict JSON representation transform.
+            </summary>
+      <typeparam name="T">delegated target type T</typeparam>
+      <typeparam name="TRepresentation">target type C</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.DelegatedJsonRepresentationStrict`2.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Json.FactorySupportedJsonConverter">
+      <summary>
+              Json converter.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Json.FactorySupportedJsonConverter.#ctor">
+      <summary>
+              Creates a DTO Converter
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.Json.FactorySupportedJsonConverter.CanConvert(System.Type)">
+      <summary>
+              Determines if we can convert the type.
+            </summary>
+      <param name="objectType" />
+      <returns />
+    </member>
+    <member name="M:FlitBit.Represent.Json.FactorySupportedJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+      <summary>
+              Creates a new object via the Factory.  Loads the instance via the serializer.
+            </summary>
+      <param name="reader">The JsonReader</param>
+      <param name="objectType">The Type of DTO</param>
+      <param name="existingValue">The DTO</param>
+      <param name="serializer">JsonSerializer</param>
+      <returns />
+    </member>
+    <member name="M:FlitBit.Represent.Json.FactorySupportedJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+      <summary>
+              Not Implemented
+            </summary>
+      <param name="writer" />
+      <param name="value" />
+      <param name="serializer" />
+    </member>
+    <member name="P:FlitBit.Represent.Json.FactorySupportedJsonConverter.CanWrite">
+      <summary>
+              We don't need to serialize, therefore, false
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Json.JsonRepresentation`1">
+      <summary>
+              Transforms source item into a it's JSON representation
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.JsonRepresentation`1.#ctor(Newtonsoft.Json.JsonSerializerSettings)">
+      <summary>
+              Creates a new instance with serializer settings given.
+            </summary>
+      <param name="settings">serializer settings</param>
+      <requires exception="T:System.ArgumentNullException" csharp="settings != null" vb="settings &lt;&gt; Nothing">settings != null</requires>
+      <exception cref="T:System.ArgumentNullException">settings == null</exception>
+    </member>
+    <member name="M:FlitBit.Represent.Json.JsonRepresentation`1.TransformItem(`0)">
+      <summary>
+              Produces a JSON representation from an item.
+            </summary>
+      <param name="item">the item</param>
+      <returns>JSON representation of the item</returns>
+    </member>
+    <member name="M:FlitBit.Represent.Json.JsonRepresentation`1.RestoreItem(System.String)">
+      <summary>
+              Restores an item from it's JSON representation
+            </summary>
+      <param name="json">the item's JSON representation</param>
+      <returns>the restored item</returns>
+    </member>
+    <member name="T:FlitBit.Represent.Json.JsonRepresentationLoose`1">
+      <summary>
+              Transforms an items into a JSON representation, ignoring missing members.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.JsonRepresentationLoose`1.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.Json.JsonRepresentationStrict`1">
+      <summary>
+              Transforms an items into a JSON representation, erroring on missing members.
+            </summary>
+      <typeparam name="T">item type T</typeparam>
+    </member>
+    <member name="M:FlitBit.Represent.Json.JsonRepresentationStrict`1.#ctor">
+      <summary>
+              Creates a new instance.
+            </summary>
+    </member>
+    <member name="T:FlitBit.Represent.AssemblyWireup">
+      <summary>
+              Wires up this assembly.
+            </summary>
+    </member>
+    <member name="M:FlitBit.Represent.AssemblyWireup.Execute(FlitBit.Wireup.IWireupCoordinator)">
+      <summary>
+              Wires up this assembly.
+            </summary>
+      <param name="coordinator" />
+    </member>
+  </members>
+</doc>

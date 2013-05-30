@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- 
+This tokenized .nuspec manifest file is targeting the latest NuGet namespace,
+which ensures you can benefit from the latest packaging features.
+
+If desired, you can change the XML-namespace and target the original XSD.
+To do so, replace the current package declaration by the following:
+
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+
+Run "nuget.exe pack <project>" to build a nuget package for this project
+using this tokenized nuspec file.
+
+-->
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <version>$version$</version>
+    <authors>Tyler Garlick</authors>
+    <owners>Tyler Garlick</owners>
+    <id>FlitBit.Dto.WebApi</id>
+    <title>FlitBit.Dto.WebApi</title>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Everything you need to get started with WebApi and FlitBit.Dto</description>
+    <projectUrl>https://github.com/TylerGarlick/FlitBit.Dto.WebApi</projectUrl>
+    <tags>FlitBit, FlitBit.IoC, FlitBit.Dto, Web Api, WebApi</tags>
+    <dependencies>
+      <dependency id="FlitBit.IoC.WebApi" />
+      <dependency id="FlitBit.Represent" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\release\FlitBit.Dto.WebApi.dll" target="lib\net45"/>
+    <file src="Content\App_Start\FlitBitDtoConfig.cs.pp" target="Content\App_Start" />
+    <file src="readme.txt" />
+  </files>
+</package>
