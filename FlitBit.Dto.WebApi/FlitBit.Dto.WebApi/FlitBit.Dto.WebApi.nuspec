@@ -24,6 +24,7 @@ using this tokenized nuspec file.
     <projectUrl>https://github.com/TylerGarlick/FlitBit.Dto.WebApi</projectUrl>
     <tags>FlitBit, FlitBit.IoC, FlitBit.Dto, Web Api, WebApi</tags>
     <dependencies>
+      <dependency id="RedRocket.Utilities.Core" />
       <dependency id="FlitBit.IoC.WebApi" />
       <dependency id="FlitBit.Represent" />
     </dependencies>

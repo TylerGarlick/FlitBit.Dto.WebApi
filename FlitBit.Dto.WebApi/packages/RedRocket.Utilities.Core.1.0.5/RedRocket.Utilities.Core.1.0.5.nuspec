@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RedRocket.Utilities.Core</id>
+    <version>1.0.5</version>
+    <title>RedRocket Framework Utilities and Helpers</title>
+    <authors>Tyler Garlick</authors>
+    <owners>Tyler Garlick</owners>
+    <projectUrl>https://github.com/TylerGarlick/RedRocket.Utilities.Core</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Helpers and Utilities for RedRocket Framework such as: annotation interfaces with data annotations and formatting strings.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <tags>RedRocket, DataAnnotations on Interfaces, FlitBit, FlitBit Helpers</tags>
+    <dependencies>
+      <dependency id="JetBrains.Annotations" />
+    </dependencies>
+  </metadata>
+</package>

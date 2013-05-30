@@ -1,10 +1,12 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.ModelBinding;
 using FlitBit.Core;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
 using FlitBit.Represent.Json;
+using RedRocket;
 
 namespace FlitBit.Dto.WebApi.ModelBinding
 {
@@ -29,6 +31,13 @@ namespace FlitBit.Dto.WebApi.ModelBinding
                 if (model != null)
                 {
                     bindingContext.Model = model;
+
+                    var errors = model.GetValidationErrors();
+                    if (errors.Any())
+                        foreach (var error in errors)
+                            actionContext.ModelState.AddModelError(error.PropertyName, error.Message);
+
+
                     return true;
                 }
             }
