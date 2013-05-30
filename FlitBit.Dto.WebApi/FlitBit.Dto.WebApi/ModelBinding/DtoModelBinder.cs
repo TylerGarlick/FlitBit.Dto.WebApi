@@ -47,7 +47,8 @@ namespace FlitBit.Dto.WebApi.ModelBinding
 
         T TransformToModel<T>(string json)
         {
-            return _currentFactory.CreateInstance<IJsonRepresentation<T>>().RestoreItem(json);
+            var rep = _currentFactory.CreateInstance<IJsonRepresentation<T>>();
+            return rep.RestoreItem(json);
         }
     }
 }

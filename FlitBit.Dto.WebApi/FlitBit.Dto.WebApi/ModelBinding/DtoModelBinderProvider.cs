@@ -17,9 +17,7 @@ namespace FlitBit.Dto.WebApi.ModelBinding
 
         public override IModelBinder GetBinder(HttpConfiguration configuration, Type modelType)
         {
-            return _currentFactory.CanConstruct(modelType) ?
-                _currentFactory.CreateInstance<DtoModelBinder>() :
-                default(IModelBinder);
+            return _currentFactory.CreateInstance<DtoModelBinder>();
         }
     }
 }

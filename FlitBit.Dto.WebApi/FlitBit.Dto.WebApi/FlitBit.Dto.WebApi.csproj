@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\App_Start\FlitBitDtoConfig.cs.pp" />
+    <Compile Include="AssemblyWireup.cs" />
     <Compile Include="HttpBodyAttribute.cs" />
     <Compile Include="MediaFormatters\DtoMediaTypeFormatter.cs" />
     <Compile Include="ModelBinding\DtoModelBinder.cs" />

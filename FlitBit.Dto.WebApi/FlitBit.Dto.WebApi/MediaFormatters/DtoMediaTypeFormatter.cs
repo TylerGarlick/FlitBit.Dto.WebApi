@@ -23,12 +23,12 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
 
         public override bool CanReadType(Type type)
         {
-            return _currentFactory.CanConstruct(type);
+            return true;
         }
 
         public override bool CanWriteType(Type type)
         {
-            return _currentFactory.CanConstruct(type);
+            return true;
         }
 
         public override Task<object> ReadFromStreamAsync(Type type, Stream readStream, System.Net.Http.HttpContent content, IFormatterLogger formatterLogger)
@@ -55,7 +55,8 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
 
         T TransformToModel<T>(string json)
         {
-            return _currentFactory.CreateInstance<IJsonRepresentation<T>>().RestoreItem(json);
+            var rep = _currentFactory.CreateInstance<IJsonRepresentation<T>>();
+            return rep.RestoreItem(json);
         }
     }
 }
