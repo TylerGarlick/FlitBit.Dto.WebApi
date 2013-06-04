@@ -22,7 +22,7 @@ namespace FlitBit.Dto.WebApi.ModelBinding
 
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {
-            if (_currentFactory.CanConstruct(bindingContext.ModelType))
+            if ((bindingContext.ModelType.IsAbstract || bindingContext.ModelType.IsInterface) && _currentFactory.CanConstruct(bindingContext.ModelType))
             {
                 var json = actionContext.Request.Content.ReadAsStringAsync().Result;
                 var transformToModelMethod = TransformToModelMethod.MakeGenericMethod(bindingContext.ModelType);
