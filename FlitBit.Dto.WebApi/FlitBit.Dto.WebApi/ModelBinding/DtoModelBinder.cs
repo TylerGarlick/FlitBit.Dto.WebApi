@@ -22,7 +22,7 @@ namespace FlitBit.Dto.WebApi.ModelBinding
 
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
         {
-            if ((bindingContext.ModelType.IsAbstract || bindingContext.ModelType.IsInterface) && _currentFactory.CanConstruct(bindingContext.ModelType))
+            if (bindingContext.ModelType.IsAbstract || bindingContext.ModelType.IsInterface)
             {
                 var json = actionContext.Request.Content.ReadAsStringAsync().Result;
                 var transformToModelMethod = TransformToModelMethod.MakeGenericMethod(bindingContext.ModelType);
@@ -47,8 +47,12 @@ namespace FlitBit.Dto.WebApi.ModelBinding
 
         T TransformToModel<T>(string json)
         {
-            var rep = _currentFactory.CreateInstance<IJsonRepresentation<T>>();
-            return rep.RestoreItem(json);
+            if (_currentFactory.CanConstruct<T>())
+            {
+                var rep = _currentFactory.CreateInstance<IJsonRepresentation<T>>();
+                return rep.RestoreItem(json);
+            }
+            return default(T);
         }
     }
 }
