@@ -15,7 +15,6 @@ namespace $rootnamespace$.App_Start
         {
             GlobalConfiguration.Configuration.Formatters[0] = new DtoMediaTypeFormatter();
             GlobalConfiguration.Configuration.Services.Insert(typeof(ModelBinderProvider), 0, new DtoModelBinderProvider());
-			GlobalConfiguration.Configuration.Formatters[0] = new DtoJsonNetFormatter();
 
 			var formatters = GlobalConfiguration.Configuration.Formatters;
             formatters.Remove(formatters.XmlFormatter);
