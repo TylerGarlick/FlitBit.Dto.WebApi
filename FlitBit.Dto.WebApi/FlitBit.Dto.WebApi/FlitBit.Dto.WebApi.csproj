@@ -119,6 +119,8 @@
     <Compile Include="AssemblyWireup.cs" />
     <Compile Include="HttpBodyAttribute.cs" />
     <Compile Include="MediaFormatters\DtoMediaTypeFormatter.cs" />
+    <Compile Include="ModelBinding\DtoJsonConverter.cs" />
+    <Compile Include="ModelBinding\DtoJsonNetFormatter.cs" />
     <Compile Include="ModelBinding\DtoModelBinder.cs" />
     <Compile Include="ModelBinding\DtoModelBinderProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

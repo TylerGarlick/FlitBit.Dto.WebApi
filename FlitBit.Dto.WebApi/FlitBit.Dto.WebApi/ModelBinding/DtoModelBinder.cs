@@ -6,6 +6,7 @@ using FlitBit.Core;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
 using FlitBit.Represent.Json;
+using Newtonsoft.Json;
 using RedRocket;
 
 namespace FlitBit.Dto.WebApi.ModelBinding
@@ -14,10 +15,17 @@ namespace FlitBit.Dto.WebApi.ModelBinding
     {
         readonly IFactory _currentFactory;
         static readonly MethodInfo TransformToModelMethod = typeof(DtoModelBinder).MatchGenericMethod("TransformToModel", BindingFlags.Instance | BindingFlags.NonPublic, 1, typeof(object), typeof(string));
-
+        
+        readonly JsonSerializerSettings _settings;
         public DtoModelBinder()
         {
             _currentFactory = FactoryProvider.Factory;
+            _settings = new JsonSerializerSettings
+            {
+                MissingMemberHandling = MissingMemberHandling.Ignore,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                Converters = new[] { new DtoJsonConverter() }
+            };
         }
 
         public bool BindModel(HttpActionContext actionContext, ModelBindingContext bindingContext)
