@@ -21,7 +21,7 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
         static readonly MethodInfo TransformToModelMethod = typeof(DtoMediaTypeFormatter).MatchGenericMethod("TransformToModel", BindingFlags.Instance | BindingFlags.NonPublic, 1, typeof(object), typeof(string));
         public DtoMediaTypeFormatter()
         {
-
+            
             _currentFactory = FactoryProvider.Factory;
             _serializerSettings = new JsonSerializerSettings();
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
@@ -42,7 +42,7 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
             return Task.Factory.StartNew(() =>
             {
                 var serializer = JsonSerializer.Create(_serializerSettings);
-                using (var streamReader = new StreamReader(readStream, new UTF8Encoding(false)))
+                using (var streamReader = new StreamReader(readStream, SupportedEncodings.FirstOrDefault() ?? new UTF8Encoding()))
                 using (var jsonTextReader = new JsonTextReader(streamReader))
                     return serializer.Deserialize(jsonTextReader);
             });
