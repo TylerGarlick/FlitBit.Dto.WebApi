@@ -9,10 +9,7 @@
     <projectUrl>https://github.com/TylerGarlick/RedRocket.Utilities.Core</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Helpers and Utilities for RedRocket Framework such as: annotation interfaces with data annotations and formatting strings.</description>
-    <releaseNotes />
-    <copyright />
-    <language />
-    <tags>RedRocket, DataAnnotations on Interfaces, FlitBit, FlitBit Helpers</tags>
+    <tags>RedRocket DataAnnotations on Interfaces FlitBit FlitBit Helpers</tags>
     <dependencies>
       <dependency id="JetBrains.Annotations" />
     </dependencies>
