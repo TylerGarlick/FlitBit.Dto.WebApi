@@ -34,26 +34,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlitBit.Copy">
-      <HintPath>..\packages\RedRocket.FlitBit.Copy.1.0.2\lib\FlitBit.Copy.dll</HintPath>
+    <Reference Include="FlitBit.Copy, Version=2.8.1.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Copy.2.8.1\lib\net40\FlitBit.Copy.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Core">
-      <HintPath>..\packages\RedRocket.FlitBit.Core.1.0.3\lib\FlitBit.Core.dll</HintPath>
+    <Reference Include="FlitBit.Core, Version=2.11.3.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Core.2.11.3\lib\net40\FlitBit.Core.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Emit">
-      <HintPath>..\packages\RedRocket.FlitBit.Emit.1.0.1\lib\FlitBit.Emit.dll</HintPath>
+    <Reference Include="FlitBit.Emit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Emit.2.8.5\lib\net40\FlitBit.Emit.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.IoC">
-      <HintPath>..\packages\RedRocket.FlitBit.IoC.1.0.1\lib\FlitBit.IoC.dll</HintPath>
+    <Reference Include="FlitBit.IoC, Version=2.11.2.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.IoC.2.11.2\lib\net40\FlitBit.IoC.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.IoC.WebApi">
-      <HintPath>..\packages\FlitBit.IoC.WebApi.1.0.3\lib\net45\FlitBit.IoC.WebApi.dll</HintPath>
+    <Reference Include="FlitBit.IoC.WebApi, Version=1.0.4954.27476, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.IoC.WebApi.1.0.6\lib\net45\FlitBit.IoC.WebApi.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Represent">
-      <HintPath>..\packages\RedRocket.FlitBit.Represent.1.0.1\lib\FlitBit.Represent.dll</HintPath>
+    <Reference Include="FlitBit.Represent, Version=1.1.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Represent.1.1.0\lib\net40\FlitBit.Represent.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Wireup">
-      <HintPath>..\packages\RedRocket.FlitBit.Wireup.1.0.3\lib\FlitBit.Wireup.dll</HintPath>
+    <Reference Include="FlitBit.Wireup, Version=3.0.3.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Wireup.3.0.3\lib\net40\FlitBit.Wireup.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Annotations">
       <HintPath>..\packages\JetBrains.Annotations.7.0\lib\net45\JetBrains.Annotations.dll</HintPath>
@@ -64,7 +71,7 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RedRocket.Utilities.Core">
       <HintPath>..\packages\RedRocket.Utilities.Core.1.0.5\lib\net45\RedRocket.Utilities.Core.dll</HintPath>
@@ -111,7 +118,8 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebActivatorEx">
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\WebActivatorEx.2.0.2\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
