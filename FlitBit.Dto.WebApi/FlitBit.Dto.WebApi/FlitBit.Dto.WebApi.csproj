@@ -50,9 +50,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\FlitBit.IoC.2.12.1\lib\net40\FlitBit.IoC.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.IoC.WebApi, Version=1.0.4954.27476, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.IoC.WebApi, Version=1.0.5009.39596, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\FlitBit.IoC.WebApi.1.0.6\lib\net45\FlitBit.IoC.WebApi.dll</HintPath>
+      <HintPath>..\packages\FlitBit.IoC.WebApi.1.0.8\lib\net45\FlitBit.IoC.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="FlitBit.Represent, Version=1.2.2.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
