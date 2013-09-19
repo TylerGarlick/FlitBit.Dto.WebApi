@@ -26,7 +26,7 @@ using this tokenized nuspec file.
     <dependencies>
       <dependency id="RedRocket.Utilities.Core" />
       <dependency id="FlitBit.IoC.WebApi" />
-      <dependency id="FlitBit.Represent" />
+      <dependency id="Newtonsoft.Json"/>
     </dependencies>
   </metadata>
   <files>

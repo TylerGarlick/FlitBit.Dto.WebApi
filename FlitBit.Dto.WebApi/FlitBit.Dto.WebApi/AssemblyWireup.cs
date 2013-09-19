@@ -2,7 +2,6 @@
 using FlitBit.Wireup.Meta;
 
 [assembly: WireupDependency(typeof(FlitBit.IoC.AssemblyWireup))]
-[assembly: WireupDependency(typeof(FlitBit.Represent.AssemblyWireup))]
 [assembly: Wireup(typeof(AssemblyWireup))]
 namespace FlitBit.Dto.WebApi
 {
@@ -10,7 +9,6 @@ namespace FlitBit.Dto.WebApi
     {
         public void Execute(IWireupCoordinator coordinator)
         {
-            
         }
     }
 }

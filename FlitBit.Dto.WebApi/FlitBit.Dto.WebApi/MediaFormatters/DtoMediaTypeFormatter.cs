@@ -9,22 +9,23 @@ using System.Threading.Tasks;
 using FlitBit.Core;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
-using FlitBit.Represent.Json;
 using Newtonsoft.Json;
 
 namespace FlitBit.Dto.WebApi.MediaFormatters
 {
     public class DtoMediaTypeFormatter : MediaTypeFormatter
     {
+        protected JsonSerializer Serializer { get; private set; }
         readonly JsonSerializerSettings _serializerSettings;
         readonly IFactory _currentFactory;
         static readonly MethodInfo TransformToModelMethod = typeof(DtoMediaTypeFormatter).MatchGenericMethod("TransformToModel", BindingFlags.Instance | BindingFlags.NonPublic, 1, typeof(object), typeof(string));
         public DtoMediaTypeFormatter()
         {
-            
+
             _currentFactory = FactoryProvider.Factory;
             _serializerSettings = new JsonSerializerSettings();
             SupportedMediaTypes.Add(new MediaTypeHeaderValue("application/json"));
+            Serializer = JsonSerializer.Create(_serializerSettings);
         }
 
         public override bool CanReadType(Type type)
@@ -59,8 +60,7 @@ namespace FlitBit.Dto.WebApi.MediaFormatters
 
         T TransformToModel<T>(string json)
         {
-            var rep = _currentFactory.CreateInstance<IJsonRepresentation<T>>();
-            return rep.RestoreItem(json);
+            return JsonConvert.DeserializeObject<T>(json, _serializerSettings);
         }
     }
 }
