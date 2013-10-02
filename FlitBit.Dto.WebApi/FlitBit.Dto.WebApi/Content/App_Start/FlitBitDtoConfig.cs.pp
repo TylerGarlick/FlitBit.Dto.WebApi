@@ -1,8 +1,6 @@
 using System.Web.Http;
-using System.Web.Http.Dispatcher;
 using System.Web.Http.ModelBinding;
-using FlitBit.Dto.WebApi.App_Start;
-using FlitBit.IoC.WebApi;
+using FlitBit.Dto.WebApi;
 using WebActivatorEx;
 using $rootnamespace$.App_Start;
 
