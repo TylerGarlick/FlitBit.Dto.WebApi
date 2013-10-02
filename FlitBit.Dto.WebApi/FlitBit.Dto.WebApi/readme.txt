@@ -8,7 +8,7 @@ DEPENDENCY INSTALLATION
 
 FlitBit.IoC.WebApi
 ================================
-See https://github.com/TylerGarlick/FlitBit.IoC.WebApi
+Steps no longer necesary
 
 
 --------------------------------------------------------------------------------

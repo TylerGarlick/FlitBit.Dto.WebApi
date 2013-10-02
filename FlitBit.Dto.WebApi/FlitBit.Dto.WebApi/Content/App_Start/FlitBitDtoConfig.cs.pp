@@ -1,10 +1,10 @@
 using System.Web.Http;
+using System.Web.Http.Dispatcher;
 using System.Web.Http.ModelBinding;
-using FlitBit.Dto.WebApi;
-using $rootnamespace$.App_Start;
-using FlitBit.Dto.WebApi.MediaFormatters;
-using FlitBit.Dto.WebApi.ModelBinding;
+using FlitBit.Dto.WebApi.App_Start;
+using FlitBit.IoC.WebApi;
 using WebActivatorEx;
+using $rootnamespace$.App_Start;
 
 [assembly: PreApplicationStartMethod(typeof(FlitBitDtoConfig), "PreStart")]
 namespace $rootnamespace$.App_Start
@@ -13,11 +13,13 @@ namespace $rootnamespace$.App_Start
     {
         public static void PreStart()
         {
-            GlobalConfiguration.Configuration.Formatters[0] = new DtoMediaTypeFormatter();
-            GlobalConfiguration.Configuration.Services.Insert(typeof(ModelBinderProvider), 0, new DtoModelBinderProvider());
+			var config = GlobalConfiguration.Configuration;
+            config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+            config.Formatters.Remove(config.Formatters.XmlFormatter);
+            config.Formatters.JsonFormatter.SerializerSettings = DefaultJsonSerializerSettings.Current;
+            config.Formatters.Insert(0, new DefaultDtoMediaTypeFormatter());
 
-			var formatters = GlobalConfiguration.Configuration.Formatters;
-            formatters.Remove(formatters.XmlFormatter);
+            GlobalConfiguration.Configuration.Services.Insert(typeof(ModelBinderProvider), 0, new DefaultDtoModelBinderProvider());
         }
     }
 }

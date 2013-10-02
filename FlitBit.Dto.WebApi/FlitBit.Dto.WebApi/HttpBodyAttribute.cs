@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Http.Controllers;
 using System.Web.Http.ModelBinding;
-using FlitBit.Dto.WebApi.ModelBinding;
 
 namespace FlitBit.Dto.WebApi
 {
@@ -10,7 +9,7 @@ namespace FlitBit.Dto.WebApi
     {
         public override HttpParameterBinding GetBinding(HttpParameterDescriptor parameter)
         {
-            parameter.BindWithModelBinding(new DtoModelBinder());
+            parameter.BindWithModelBinding(new DefaultDtoModelBinder());
             return base.GetBinding(parameter);
         }
     }
