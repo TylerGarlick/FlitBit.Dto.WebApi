@@ -46,21 +46,25 @@ namespace FlitBit.Dto.WebApi
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JsonReader objectReader = null;
+
             var instance = _container.NewUntyped(objectType);
 
-            if (reader.TokenType == JsonToken.StartObject)
+            if (reader.TokenType == JsonToken.StartObject || reader.TokenType == JsonToken.StartArray)
             {
-                var jObject = JObject.Load(reader);
-                objectReader = jObject.CreateReader();
-            }
+                if (reader.TokenType == JsonToken.StartObject)
+                {
+                    var jObject = JObject.Load(reader);
+                    objectReader = jObject.CreateReader();
+                }
 
-            if (reader.TokenType == JsonToken.StartArray)
-            {
-                var jArray = JArray.Load(reader);
-                objectReader = jArray.CreateReader();
-            }
+                if (reader.TokenType == JsonToken.StartArray)
+                {
+                    var jArray = JArray.Load(reader);
+                    objectReader = jArray.CreateReader();
+                }
 
-            serializer.Populate(objectReader, instance);
+                serializer.Populate(objectReader, instance);
+            }
 
             return instance;
         }
