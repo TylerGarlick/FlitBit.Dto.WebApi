@@ -32,7 +32,7 @@ namespace FlitBit.Dto.WebApi
         /// <returns></returns>
         public override bool CanConvert(Type objectType)
         {
-            return objectType.IsAbstract && _container.CanConstruct(objectType);
+            return (objectType.IsAbstract || objectType.IsInterface) && _container.CanConstruct(objectType);
         }
 
         /// <summary>
@@ -46,9 +46,8 @@ namespace FlitBit.Dto.WebApi
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JsonReader objectReader = null;
-
-            var instance = _container.NewUntyped(objectType);
-
+            
+            var instance = _container.CreateInstance(objectType);
             if (reader.TokenType == JsonToken.StartObject || reader.TokenType == JsonToken.StartArray)
             {
                 if (reader.TokenType == JsonToken.StartObject)
@@ -62,8 +61,9 @@ namespace FlitBit.Dto.WebApi
                     var jArray = JArray.Load(reader);
                     objectReader = jArray.CreateReader();
                 }
-
-                serializer.Populate(objectReader, instance);
+                
+                if(objectReader != null)
+                    serializer.Populate(objectReader, instance);
             }
 
             return instance;
