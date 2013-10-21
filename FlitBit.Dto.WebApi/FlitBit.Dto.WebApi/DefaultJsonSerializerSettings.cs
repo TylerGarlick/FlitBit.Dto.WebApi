@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace FlitBit.Dto.WebApi
 {
@@ -9,7 +10,7 @@ namespace FlitBit.Dto.WebApi
             Current = new JsonSerializerSettings
             {
                 Formatting = Formatting.Indented,
-                ContractResolver = new DefaultCamelCasePropertyNamesContractResolver(),
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                 Converters = new[] { new DefaultJsonConverter() }
