@@ -24,13 +24,12 @@ using this tokenized nuspec file.
     <projectUrl>https://github.com/TylerGarlick/FlitBit.Dto.WebApi</projectUrl>
     <tags>FlitBit, FlitBit.IoC, FlitBit.Dto, Web Api, WebApi</tags>
     <dependencies>
-      <dependency id="RedRocket.Utilities.Core" />
-      <dependency id="FlitBit.IoC.WebApi" />
-      <dependency id="Newtonsoft.Json"/>
+      <dependency id="RedRocket.Utilities.Core" version="1.0.7" />
+      <dependency id="FlitBit.IoC.WebApi" version="1.2.0" />
+      <dependency id="Newtonsoft.Json" version="5.0.8"/>
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\release\FlitBit.Dto.WebApi.dll" target="lib\net45"/>
     <file src="Content\App_Start\FlitBitDtoConfig.cs.pp" target="Content\App_Start" />
     <file src="readme.txt" />
   </files>
