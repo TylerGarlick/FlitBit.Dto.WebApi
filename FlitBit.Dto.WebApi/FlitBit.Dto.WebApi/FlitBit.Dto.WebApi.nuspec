@@ -25,8 +25,8 @@ using this tokenized nuspec file.
     <tags>FlitBit, FlitBit.IoC, FlitBit.Dto, Web Api, WebApi</tags>
     <dependencies>
       <dependency id="RedRocket.Utilities.Core" version="1.0.7" />
-      <dependency id="FlitBit.IoC.WebApi" version="1.2.0" />
-      <dependency id="Newtonsoft.Json" version="5.0.8"/>
+      <dependency id="FlitBit.IoC.WebApi" version="1.2.4" />
+      <dependency id="Newtonsoft.Json" version="6.0.1"/>
     </dependencies>
   </metadata>
   <files>

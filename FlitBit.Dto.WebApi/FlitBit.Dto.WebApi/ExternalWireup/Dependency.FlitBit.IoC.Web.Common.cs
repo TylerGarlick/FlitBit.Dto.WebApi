@@ -1,0 +1,1 @@
+[assembly: FlitBit.Wireup.Meta.WireupDependency(typeof(FlitBit.IoC.Web.Common.AssemblyWireup))]
